@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<style>
+    /* Reset styles */
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+    /* Container styles */
+    .container {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+    /* Header styles */
+    .header {
+        background-color: #007bff;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    /* Content styles */
+    .content {
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+    }
+    /* Button styles */
+    .button {
+        display: inline-block;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+    /* Footer styles */
+    .footer {
+        text-align: center;
+        margin-top: 20px;
+        color: #777;
+    }
+</style>
+
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Email Activation</h1>
+    </div>
+    <div class="content">
+        <p th:text="'Hello ' + ${username} + ','"></p>
+        <p>Thank you for signing up! To activate your account, please click the button below:</p>
+        <p th:text="${activation_code}"></p>
+        <p><a th:href="${confirmationUrl}" class="button">Activate Account</a></p>
+        <p>If the button above doesn't work, you can also activate your account by copying and pasting the following URL into your browser:</p>
+
+    </div>
+    <div class="footer">
+        <p>If you did not sign up for an account, you can safely ignore this email.</p>
+    </div>
+</div>
+</body>
+</html>
