@@ -1,5 +1,6 @@
 package com.mesha.book.book;
 
+import com.mesha.book.history.BookTransactionHistory;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -29,6 +30,18 @@ public class BookMapper {
                 //TODO implement later
 //                .cover(null)
 
+                .build();
+    }
+
+    public BorrowedBookResponse toBorrowedBooResponse(BookTransactionHistory history) {
+        return BorrowedBookResponse.builder()
+                .id(history.getBook().getId())
+                .title(history.getBook().getTitle())
+                .isbn(history.getBook().getIsbn())
+                .authorName(history.getBook().getAuthorName())
+                .rate(history.getBook().getRates())
+                .returnApproved(history.isReturnApproved())
+                .returned(history.isReturned())
                 .build();
     }
 }
